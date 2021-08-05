@@ -4,7 +4,6 @@
 
 - Use the **React Redux** library to connect the store to the **React**
   application.
-
 - Utilize the `<Provider />` component, the `connect` function and
   `mapStateToProps` to access **Redux** store content.
 
@@ -20,14 +19,14 @@ packages in your app.
 Some files are provided, including `UserInput` and the reducer, `manageUsers`,
 but the **Redux** store isn't fully hooked up yet.
 
-#### Connecting to Redux
+### Connecting to Redux
 
-In `src/index.js`, use the `createStore` method from `redux`, passing in the 
-provided reducer, `manageUsers`, to create a `store`. Use `Provider` from 
-`react-redux` to wrap `<App />`, passing `store` as a prop to the `Provider`. 
+In `src/index.js`, use the `createStore` method from `redux`, passing in the
+provided reducer, `manageUsers`, to create a `store`. Use `Provider` from
+`react-redux` to wrap `<App />`, passing `store` as a prop to the `Provider`.
 This will give your components access to the store.
 
-#### Test by Dispatching an Action
+### Test by Dispatching an Action
 
 Run `npm start` and open up your browser's dev console. If everything is
 connected correctly in `index.js`, a form should appear in the browser.
@@ -37,7 +36,7 @@ reducer, indicating that the values have been added to our store.
 In `UserInput.js`, we can see the code that fires when we press the submit
 button:
 
-```js
+```jsx
 ...
 
 handleOnSubmit = (event) => {
@@ -56,9 +55,10 @@ render() {
 
 We can see that, _on submit_, `handleOnSubmit()` is called.
 `event.preventDefault()` is called to stop the page from refreshing, then
-`this.props.dispatch()` is called with a custom action, `{type: 'ADD_USER', user: this.state}`.
+`this.props.dispatch()` is called with a custom action,
+`{type: 'ADD_USER', user: this.state}`.
 
-```js
+```jsx
 export default connect()(UserInput);
 ```
 
@@ -95,4 +95,3 @@ With all tests passing, you should have a working form that adds and
 successfully displays usernames, as well as a total count of those users. While
 these are small bits of data, we've got a fully integrated React/Redux
 application, ready to be expanded upon!
-
