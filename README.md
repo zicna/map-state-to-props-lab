@@ -4,8 +4,7 @@
 
 - Use the **React Redux** library to connect the store to the **React**
   application.
-
-- Utilize the **<Provider />** component, the `connect` function and
+- Utilize the `<Provider />` component, the `connect` function and
   `mapStateToProps` to access **Redux** store content.
 
 ## Overview
@@ -20,14 +19,14 @@ packages in your app.
 Some files are provided, including `UserInput` and the reducer, `manageUsers`,
 but the **Redux** store isn't fully hooked up yet.
 
-#### Connecting to Redux
+### Connecting to Redux
 
-In `src/index.js`, use the `createStore` from `redux`, passing in the provided
-reducer, `manageUsers`, to create a `store`. Use `Provider` from `react-redux`
-to wrap `<App />`, passing `store` as a prop to the `Provider`. This will give
-your components access to the store.
+In `src/index.js`, use the `createStore` method from `redux`, passing in the
+provided reducer, `manageUsers`, to create a `store`. Use `Provider` from
+`react-redux` to wrap `<App />`, passing `store` as a prop to the `Provider`.
+This will give your components access to the store.
 
-#### Test by Dispatching an Action
+### Test by Dispatching an Action
 
 Run `npm start` and open up your browser's dev console. If everything is
 connected correctly in `index.js`, a form should appear in the browser.
@@ -37,7 +36,7 @@ reducer, indicating that the values have been added to our store.
 In `UserInput.js`, we can see the code that fires when we press the submit
 button:
 
-```js
+```jsx
 ...
 
 handleOnSubmit = (event) => {
@@ -56,9 +55,10 @@ render() {
 
 We can see that, _on submit_, `handleOnSubmit()` is called.
 `event.preventDefault()` is called to stop the page from refreshing, then
-`this.props.dispatch()` is called with a custom action, `{type: 'ADD_USER', user: this.state}`.
+`this.props.dispatch()` is called with a custom action,
+`{type: 'ADD_USER', user: this.state}`.
 
-```js
+```jsx
 export default connect()(UserInput);
 ```
 
@@ -77,7 +77,7 @@ contents of our store's state.
 
 1. Connect the Users component similar to how it is connected in UserInput.
 
-2. Write a function in `Users.js`, but outside of the Users class called
+2. Write a function in `Users.js`, but outside of the Users class, called
    `mapStateToProps`. `mapStateToProps` accepts one argument, `state`, the
    current version of your store's state. Use `state` to access the array of
    `users`. Your `mapStateToProps` function should return an object with keys.
